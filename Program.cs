@@ -45,12 +45,19 @@ class Program
     {
         QueueUsingLinkedList<int> queue = new QueueUsingLinkedList<int>();
 
-        // Enqueue values into the queue
-        queue.Enqueue(56);
-        queue.Enqueue(30);
-        queue.Enqueue(70);
+        Console.WriteLine("Enter the number of elements to enqueue:");
+        int numElements = int.Parse(Console.ReadLine());
 
-        // Dequeue and peek until the queue is empty
+        for (int i = 0; i < numElements; i++)
+        {
+            Console.Write($"Enter element {i + 1}: ");
+            int element = int.Parse(Console.ReadLine());
+            queue.Enqueue(element);
+        }
+
+        Console.WriteLine("\nDequeueing and peeking from the beginning:");
+
+        // Dequeue and peek from the beginning until the queue is empty
         while (!queue.IsEmpty())
         {
             Console.WriteLine("Front of the queue: " + queue.Peek());
